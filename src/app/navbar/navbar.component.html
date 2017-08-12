@@ -1,0 +1,17 @@
+<button md-icon-button [mdMenuTriggerFor]="menu">
+  <md-icon>more_vert</md-icon>
+</button>
+<md-menu #menu="mdMenu">
+  <button md-menu-item>
+    <!--<md-icon>input</md-icon>-->
+    <md-icon>custom-login</md-icon>
+    <span>Login</span>
+  </button>
+  <button md-menu-item>
+    <!--https://github.com/klarsys/angular-material-icons/issues/53-->
+    <md-icon>custom-logout</md-icon>
+    <!--<img class="icon" src="my_icon.png" alt="my icon"/>-->
+    <span>Logout</span>
+  </button>
+</md-menu>
+

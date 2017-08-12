@@ -4,15 +4,29 @@ import { FormsModule } from '@angular/forms';
 import { HttpModule } from '@angular/http';
 
 import { AppComponent } from './app.component';
+import { NavbarComponent } from './navbar/navbar.component';
+import {
+  MdButtonModule, MdCardModule, MdIconModule, MdInputModule, MdMenuModule, MdToolbarModule
+} from '@angular/material';
+import {BrowserAnimationsModule} from '@angular/platform-browser/animations';
 
 @NgModule({
   declarations: [
-    AppComponent
+    AppComponent,
+    NavbarComponent
   ],
   imports: [
     BrowserModule,
     FormsModule,
-    HttpModule
+    HttpModule,
+    MdButtonModule,
+    BrowserAnimationsModule,
+    MdCardModule,
+    MdToolbarModule,
+    MdButtonModule,
+    MdIconModule,
+    MdMenuModule,
+    MdInputModule
   ],
   providers: [],
   bootstrap: [AppComponent]
