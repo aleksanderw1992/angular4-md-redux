@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import {MdIconRegistry} from '@angular/material';
+import {DomSanitizer} from "@angular/platform-browser";
 
 @Component({
   selector: 'app-navbar',
@@ -8,9 +9,9 @@ import {MdIconRegistry} from '@angular/material';
 })
 export class NavbarComponent implements OnInit {
 
-  constructor(private mdIconRegistry: MdIconRegistry) {
-    mdIconRegistry.addSvgIcon('custom-login', '/icons/login-svg.svg');
-    mdIconRegistry.addSvgIcon('custom-logout', '/icons/logout-svg.svg');
+  constructor(private mdIconRegistry: MdIconRegistry, sanitizer: DomSanitizer) {
+    mdIconRegistry.addSvgIcon('custom-login', sanitizer.bypassSecurityTrustResourceUrl('assets/icons/login-svg.svg'));
+    mdIconRegistry.addSvgIcon('custom-logout', sanitizer.bypassSecurityTrustResourceUrl('assets/icons/logout-svg.svg'));
   }
 
   ngOnInit() {
