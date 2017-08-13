@@ -4,3 +4,13 @@
 .message-card-pull-left{
   margin: 0px 40px 0px 0px;
 }
+.md-card-title{
+  font-size: larger;
+  font-weight: 400;
+}
+.red{
+  background-color: tomato;
+}
+.yellow{
+  background-color: burlywood;
+}
