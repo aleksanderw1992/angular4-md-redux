@@ -11,6 +11,7 @@ import {
 import {BrowserAnimationsModule} from '@angular/platform-browser/animations';
 import { CardsComponent } from './cards/cards.component';
 import { CardComponent } from './card/card.component';
+import {CardService} from "./card/card.service";
 
 @NgModule({
   declarations: [
@@ -32,7 +33,7 @@ import { CardComponent } from './card/card.component';
     MdMenuModule,
     MdInputModule
   ],
-  providers: [MdIconRegistry],
+  providers: [MdIconRegistry, CardService],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

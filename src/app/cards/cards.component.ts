@@ -1,4 +1,6 @@
 import { Component, OnInit } from '@angular/core';
+import {CardService} from "../card/card.service";
+import {DisplayCard} from "../card/diaply-card";
 
 @Component({
   selector: 'app-cards',
@@ -7,7 +9,12 @@ import { Component, OnInit } from '@angular/core';
 })
 export class CardsComponent implements OnInit {
 
-  constructor() { }
+  private _cards: Array<DisplayCard>;
+
+  constructor(private cardService: CardService) {
+    this._cards = this.cardService.getCards();
+  }
+
 
   ngOnInit() {
   }
