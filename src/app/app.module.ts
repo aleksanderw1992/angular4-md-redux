@@ -12,13 +12,15 @@ import {BrowserAnimationsModule} from '@angular/platform-browser/animations';
 import { CardsComponent } from './cards/cards.component';
 import { CardComponent } from './card/card.component';
 import {CardService} from "./card/card.service";
+import { SendMessageCardComponent } from './send-message-card/send-message-card.component';
 
 @NgModule({
   declarations: [
     AppComponent,
     NavbarComponent,
     CardsComponent,
-    CardComponent
+    CardComponent,
+    SendMessageCardComponent
   ],
   imports: [
     BrowserModule,
