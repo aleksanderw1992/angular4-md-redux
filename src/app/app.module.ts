@@ -9,11 +9,15 @@ import {
   MdButtonModule, MdCardModule, MdIconModule, MdIconRegistry, MdInputModule, MdMenuModule, MdToolbarModule
 } from '@angular/material';
 import {BrowserAnimationsModule} from '@angular/platform-browser/animations';
+import { CardsComponent } from './cards/cards.component';
+import { CardComponent } from './card/card.component';
 
 @NgModule({
   declarations: [
     AppComponent,
-    NavbarComponent
+    NavbarComponent,
+    CardsComponent,
+    CardComponent
   ],
   imports: [
     BrowserModule,
