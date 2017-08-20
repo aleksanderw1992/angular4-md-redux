@@ -1,13 +1,13 @@
-<form class="">
+<form #fSendCard="ngForm" class="">
   <md-input-container class="width-100">
-    <input mdInput placeholder="Your name:" disabled value="Aleksander Wojcik">
+    <input mdInput placeholder="Your name:" disabled value="{{getUserDisplayName()}}">
   </md-input-container>
 
   <md-input-container class="width-100">
     <textarea mdInput md-autosize mdAutosizeMinRows="5" placeholder="Your message..."></textarea>
   </md-input-container>
   <div class="width-100">
-    <button md-raised-button>Send</button>
+    <button md-raised-button onclick="send(fSendCard)" [disabled]="!authenticatedUserService.hasAuthenticatedUser()">Send</button>
   </div>
 </form>
 

@@ -6,6 +6,7 @@ import { HttpModule } from '@angular/http';
 import { AppComponent } from './app.component';
 import { NavbarComponent } from './navbar/navbar.component';
 import {
+  MaterialModule,
   MdButtonModule, MdCardModule, MdIconModule, MdIconRegistry, MdInputModule, MdMenuModule, MdToolbarModule
 } from '@angular/material';
 import {BrowserAnimationsModule} from '@angular/platform-browser/animations';
@@ -13,6 +14,9 @@ import { CardsComponent } from './cards/cards.component';
 import { CardComponent } from './card/card.component';
 import {CardService} from "./card/card.service";
 import { SendMessageCardComponent } from './send-message-card/send-message-card.component';
+import { LoginDialogComponent } from './auth/login-dialog/login-dialog.component';
+import {UserService} from "./auth/user.service";
+import {AuthenticatedUserService} from "./auth/authenticatedUser.service";
 
 @NgModule({
   declarations: [
@@ -20,7 +24,8 @@ import { SendMessageCardComponent } from './send-message-card/send-message-card.
     NavbarComponent,
     CardsComponent,
     CardComponent,
-    SendMessageCardComponent
+    SendMessageCardComponent,
+    LoginDialogComponent
   ],
   imports: [
     BrowserModule,
@@ -33,9 +38,12 @@ import { SendMessageCardComponent } from './send-message-card/send-message-card.
     MdButtonModule,
     MdIconModule,
     MdMenuModule,
-    MdInputModule
+    MdInputModule,
+    MaterialModule,
+
   ],
-  providers: [MdIconRegistry, CardService],
+  providers: [MdIconRegistry, CardService, UserService, AuthenticatedUserService],
+  entryComponents: [LoginDialogComponent],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

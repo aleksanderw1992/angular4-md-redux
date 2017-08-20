@@ -1,4 +1,6 @@
-import { Component, OnInit } from '@angular/core';
+import {Component, OnInit} from '@angular/core';
+import {AuthenticatedUserService} from "../auth/authenticatedUser.service";
+import {User} from "../auth/user";
 
 @Component({
   selector: 'app-send-message-card',
@@ -7,9 +9,21 @@ import { Component, OnInit } from '@angular/core';
 })
 export class SendMessageCardComponent implements OnInit {
 
-  constructor() { }
+  constructor(private authenticatedUserService: AuthenticatedUserService) {
+  }
+
 
   ngOnInit() {
   }
 
+  getUserDisplayName() {
+    return this.authenticatedUserService.hasAuthenticatedUser()?
+      User.getDisplayName(this.authenticatedUserService.authenticatedUser):
+      ' ';
+  }
+
+  send(fSendCard) {
+    console.log(fSendCard)
+    console.log(fSendCard.value)
+  }
 }

@@ -1,0 +1,81 @@
+<div class="size">
+  <!--<h1 md-dialog-title>Login</h1>-->
+
+
+    <md-tab-group dynamicHeight [selectedIndex]="selectedTab">
+      <md-tab>
+        <form #fLogin="ngForm">
+        <ng-template md-tab-label>
+          Login
+        </ng-template>
+        <div md-dialog-content>
+          <p>
+            <md-input-container>
+              <input type="text" mdInput placeholder="Username" [ngModel]="username"
+                     name="username"
+                     required>
+            </md-input-container>
+          </p>
+          <p>
+            <md-input-container>
+              <input type="password" mdInput placeholder="Password" [ngModel]="password"
+                     name="password" required>
+            </md-input-container>
+          </p>
+        </div>
+        <div md-dialog-actions>
+          <button type="submit" md-button [disabled]="fLogin.form.invalid" (click)="login(fLogin)">
+            Login
+          </button>
+          <button md-button (click)="cancel(fLogin)">Cancel</button>
+        </div>
+        </form>
+      </md-tab>
+
+      <md-tab>
+        <form #fSignup="ngForm">
+
+        <ng-template md-tab-label>
+          Signup
+        </ng-template>
+        <div md-dialog-content>
+          <p>
+            <md-input-container>
+              <input type="text" mdInput placeholder="Username" [ngModel]="username" name="username" required>
+            </md-input-container>
+          </p>
+          <p>
+            <md-input-container>
+              <input type="text" mdInput placeholder="First name" [ngModel]="firstname" name="firstname" required>
+            </md-input-container>
+          </p>
+          <p>
+            <md-input-container>
+              <input type="text" mdInput placeholder="Surname" [ngModel]="surname" name="surname" required>
+            </md-input-container>
+          </p>
+          <p>
+            <md-input-container>
+              <input type="password" mdInput placeholder="Password" [ngModel]="password" name="password" required>
+            </md-input-container>
+          </p>
+          <p>
+            <md-input-container>
+              <input type="password" mdInput placeholder="Confirm password" [ngModel]="confirmPassword"
+                     name="confirmPassword" required [errorStateMatcher]="errorStatePasswordsMatcher">
+              <md-error>Password is not correctly confirmed</md-error>
+            </md-input-container>
+          </p>
+        </div>
+        <div md-dialog-actions>
+          <button type="submit" md-button [disabled]="fSignup.form.invalid || !passwordsMatch(fSignup)" (click)="signup(fSignup)">
+            Signup
+          </button>
+          <button md-button (click)="cancel(fSignup)">Cancel</button>
+        </div>
+        </form>
+      </md-tab>
+    </md-tab-group>
+
+
+</div>

@@ -1,0 +1,8 @@
+.size{
+  width: 400px;
+  height:550px;
+}
+p, input, .mat-input-infix, .mat-input-container {
+  width: 100%;
+}
+
