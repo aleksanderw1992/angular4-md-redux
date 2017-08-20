@@ -19,7 +19,7 @@ export class UserService {
     delete data.password;
     data.hashedPassword=hashedPassword;
     this._users.push(data)
-    return ErrorOrResult.createResult(true)
+    return ErrorOrResult.createResult(data)
   }
 
   findUser(username, password) :ErrorOrResult{

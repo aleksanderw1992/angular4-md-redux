@@ -4,6 +4,7 @@ import {DomSanitizer} from "@angular/platform-browser";
 import {LoginDialogComponent} from "../auth/login-dialog/login-dialog.component";
 import {UserService} from "../auth/user.service";
 import {AuthenticatedUserService} from "../auth/authenticatedUser.service";
+import {CustomErrorHandler} from "../common/CustomErrorHandler";
 
 @Component({
   selector: 'app-navbar',
@@ -31,20 +32,28 @@ export class NavbarComponent implements OnInit {
       const user = result.data;
 
       switch (result.loginType) {
+        //I know it is now duplication, but keeping for the time being
         case 'login':
-          this.userService.findUser(user.username, user.hashedPassword)
+          let errorOrResultLogin = this.userService.findUser(user.username, user.hashedPassword);
+          if(errorOrResultLogin.data){
+            this.authenticatedUserService.login(errorOrResultLogin.data)
+          }else{
+            CustomErrorHandler.handleError(errorOrResultLogin.error)
+          }
           break
         case 'signup':
-          let errorOrResult = this.userService.add(user);
-          if(errorOrResult.data){
-            this.authenticatedUserService.login(user)
+          let errorOrResultSignUp = this.userService.add(user);
+          if(errorOrResultSignUp.data){
+            this.authenticatedUserService.login(errorOrResultSignUp.data)
           }else{
-            throw new Error(errorOrResult.error)
+            CustomErrorHandler.handleError(errorOrResultSignUp.error)
           }
           break
       }
     });
-
+  }
+  logout(){
+    this.authenticatedUserService.logout()
   }
 
 }

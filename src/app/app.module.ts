@@ -17,6 +17,7 @@ import { SendMessageCardComponent } from './send-message-card/send-message-card.
 import { LoginDialogComponent } from './auth/login-dialog/login-dialog.component';
 import {UserService} from "./auth/user.service";
 import {AuthenticatedUserService} from "./auth/authenticatedUser.service";
+import {CustomErrorHandler} from "./common/CustomErrorHandler";
 
 @NgModule({
   declarations: [
@@ -41,8 +42,9 @@ import {AuthenticatedUserService} from "./auth/authenticatedUser.service";
     MdInputModule,
     MaterialModule,
 
+
   ],
-  providers: [MdIconRegistry, CardService, UserService, AuthenticatedUserService],
+  providers: [MdIconRegistry, CardService, UserService, AuthenticatedUserService, CustomErrorHandler],
   entryComponents: [LoginDialogComponent],
   bootstrap: [AppComponent]
 })
