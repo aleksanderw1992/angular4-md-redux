@@ -34,7 +34,7 @@ export class NavbarComponent implements OnInit {
       switch (result.loginType) {
         //I know it is now duplication, but keeping for the time being
         case 'login':
-          let errorOrResultLogin = this.userService.findUser(user.username, user.hashedPassword);
+          let errorOrResultLogin = this.userService.findUser(user.username, user.password);
           if(errorOrResultLogin.data){
             this.authenticatedUserService.login(errorOrResultLogin.data)
           }else{

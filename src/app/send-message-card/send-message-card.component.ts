@@ -27,4 +27,8 @@ export class SendMessageCardComponent implements OnInit {
   send(fSendCard) {
     this.cardService.addCard(fSendCard.value.message)
   }
+  disableSendBtn(fSendCard){
+    let message = fSendCard.value.message;
+    return !this.authenticatedUserService.hasAuthenticatedUser() || !message
+  }
 }

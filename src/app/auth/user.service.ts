@@ -29,7 +29,7 @@ export class UserService {
       return ErrorOrResult.createError('more than one user found')
     }
     if (count === 1) {
-      return ErrorOrResult.createResult(userFullyMatched)
+      return ErrorOrResult.createResult(userFullyMatched[0])
     }
     //count ===0
     let userMatchedByUsername = this._users.filter((u) => u.username === username)
