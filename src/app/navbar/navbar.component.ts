@@ -5,6 +5,7 @@ import {LoginDialogComponent} from "../auth/login-dialog/login-dialog.component"
 import {UserService} from "../auth/user.service";
 import {AuthenticatedUserService} from "../auth/authenticatedUser.service";
 import {CustomErrorHandler} from "../common/CustomErrorHandler";
+import {CardColorExcludingInitial} from "../card/card-colors";
 
 @Component({
   selector: 'app-navbar',

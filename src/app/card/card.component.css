@@ -8,6 +8,9 @@
   font-size: larger;
   font-weight: 400;
 }
+.first-card{
+  background-color: darksalmon;
+}
 .red{
   background-color: tomato;
 }
@@ -18,8 +21,12 @@
   background-color: chartreuse;
 }
 .blue{
-  background-color: aqua;
+  background-color: lightsteelblue;
 }
 .orange{
   background-color: coral;
 }
+.pink{
+  background-color: hotpink;
+}
+

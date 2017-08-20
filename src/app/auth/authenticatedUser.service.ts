@@ -17,4 +17,7 @@ export class AuthenticatedUserService{
   hasAuthenticatedUser(){
     return !!this._authenticatedUser;
   }
+  getUsernameOrNull(){
+    return this.hasAuthenticatedUser()? this.authenticatedUser.username:null
+  }
 }

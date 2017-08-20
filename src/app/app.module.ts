@@ -18,6 +18,7 @@ import { LoginDialogComponent } from './auth/login-dialog/login-dialog.component
 import {UserService} from "./auth/user.service";
 import {AuthenticatedUserService} from "./auth/authenticatedUser.service";
 import {CustomErrorHandler} from "./common/CustomErrorHandler";
+import {CardColorsService} from "./card/card-colors.service";
 
 @NgModule({
   declarations: [
@@ -44,7 +45,7 @@ import {CustomErrorHandler} from "./common/CustomErrorHandler";
 
 
   ],
-  providers: [MdIconRegistry, CardService, UserService, AuthenticatedUserService, CustomErrorHandler],
+  providers: [MdIconRegistry, CardService, UserService, AuthenticatedUserService, CustomErrorHandler, CardColorsService],
   entryComponents: [LoginDialogComponent],
   bootstrap: [AppComponent]
 })
