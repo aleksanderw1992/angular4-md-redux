@@ -5,8 +5,8 @@
   /*fallback*/
   height: 600px;
   width: 100%;
-  /*max-height: calc(100% - 350px);*/
-  overflow: scroll;
+  /*height: calc(100% - 350px);*/
+  overflow: auto;
 }
 .height-app-send-message-card{
   height: 260px;
