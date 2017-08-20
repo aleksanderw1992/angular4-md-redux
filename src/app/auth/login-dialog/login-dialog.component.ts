@@ -37,12 +37,10 @@ export class LoginDialogComponent implements OnInit {
     if (!form.form.controls.password || !form.form.controls.confirmPassword) {
       return false;
     }
-    var isPasswordsMatch = form.form.controls.password.value === form.form.controls.confirmPassword.value;
+    let isPasswordsMatch = form.form.controls.password.value === form.form.controls.confirmPassword.value;
     //checking sirty might be removed from here, I think
-    var areControlsDirty = form.form.controls.password.dirty && form.form.controls.confirmPassword.dirty;
-    let validationOk = areControlsDirty && isPasswordsMatch;
-    // console.log(validationOk);
-    return validationOk;
+    let areControlsDirty = form.form.controls.password.dirty && form.form.controls.confirmPassword.dirty;
+    return areControlsDirty && isPasswordsMatch;
   }
 
   errorStatePasswordsMatcher(control: FormControl, form: NgForm): boolean {
@@ -55,8 +53,6 @@ export class LoginDialogComponent implements OnInit {
         return false;
       }
       let isPasswordsMatch = form.form.controls.password.value === form.form.controls.confirmPassword.value;
-    // console.log(isPasswordsMatch);
-
       return !isPasswordsMatch;
   }
 }

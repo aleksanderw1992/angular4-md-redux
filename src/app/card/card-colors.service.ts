@@ -28,14 +28,11 @@ export class CardColorsService {
     let randomColor = cardColorExcludingInitial.splice(randomInd,1);
 
     result[username]=randomColor
-    console.log(randomColor);
-    console.log(cardColorExcludingInitial);
     for (let i =0; i<usernames.length;i++){
       let currentUsername = usernames[i]
       let color= cardColorExcludingInitial[i%cardColorExcludingInitial.length]
       result[currentUsername]=color
     }
-    console.log(result);
     this.previousResult=result
     this.previousUser=username
     return result
