@@ -13,6 +13,7 @@ export class CardService{
 
   addCard(content){
     this._cards.push(new Card(this.authenticatedUserService.authenticatedUser, content));
+    console.log(this._cards)
   }
 
   public getCards(): Array<DisplayCard> {

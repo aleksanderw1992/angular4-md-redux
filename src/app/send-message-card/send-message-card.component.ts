@@ -1,6 +1,7 @@
 import {Component, OnInit} from '@angular/core';
 import {AuthenticatedUserService} from "../auth/authenticatedUser.service";
 import {User} from "../auth/user";
+import {CardService} from "../card/card.service";
 
 @Component({
   selector: 'app-send-message-card',
@@ -9,7 +10,8 @@ import {User} from "../auth/user";
 })
 export class SendMessageCardComponent implements OnInit {
 
-  constructor(private authenticatedUserService: AuthenticatedUserService) {
+  constructor(private authenticatedUserService: AuthenticatedUserService,
+  private cardService: CardService) {
   }
 
 
@@ -23,7 +25,6 @@ export class SendMessageCardComponent implements OnInit {
   }
 
   send(fSendCard) {
-    console.log(fSendCard)
-    console.log(fSendCard.value)
+    this.cardService.addCard(fSendCard.value.message)
   }
 }
