@@ -19,7 +19,7 @@ export class CardService {
 
   addCard(content) {
     this._cards.push(new Card(this.authenticatedUserService.authenticatedUser, content));
-    this.observables.notifyCardAdded()
+    this.observables.notifyCardsChanged()
   }
 
   public getCards(): Array<DisplayCard> {

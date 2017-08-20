@@ -4,7 +4,7 @@ export class Observables {
   private _cardAdded = new Subject<void>();
   public cardAdded = this._cardAdded.asObservable();
 
-  public notifyCardAdded() {
+  public notifyCardsChanged() {
     this._cardAdded.next();
   }
 }

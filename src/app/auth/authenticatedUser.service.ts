@@ -12,12 +12,12 @@ export class AuthenticatedUserService{
 
   login(user: User) {
     this._authenticatedUser = user
-    this.observables.notifyCardAdded()
+    this.observables.notifyCardsChanged()
   }
 
   logout() {
     this._authenticatedUser = undefined
-    this.observables.notifyCardAdded()
+    this.observables.notifyCardsChanged()
   }
 
   get authenticatedUser(): User {
