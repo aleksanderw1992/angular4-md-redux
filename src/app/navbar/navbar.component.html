@@ -7,9 +7,9 @@
     <md-icon svgIcon="custom-login"></md-icon>
     <span>Login</span>
   </button>
-  <button md-menu-item>
+  <button md-menu-item (click)="logout()">
     <!--https://github.com/klarsys/angular-material-icons/issues/53-->
-    <md-icon svgIcon="custom-logout" (click)="logout()"></md-icon>
+    <md-icon svgIcon="custom-logout"></md-icon>
     <!--<img class="icon" src="my_icon.png" alt="my icon"/>-->
     <span>Logout</span>
   </button>
