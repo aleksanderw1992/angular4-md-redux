@@ -9,9 +9,6 @@
           Login
         </ng-template>
         <div md-dialog-content>
-          <p class="hint">
-            Hint:<br> "<b>test / test</b>" are credentials to already registered user.
-          </p>
           <p>
             <md-input-container>
               <input type="text" mdInput placeholder="Username" [ngModel]="username"
@@ -32,6 +29,9 @@
           </button>
           <button md-button (click)="cancel(fLogin)">Cancel</button>
         </div>
+          <p class="hint">
+            Hint:<br> "<b>test / test</b>" are credentials to already registered user.
+          </p>
         </form>
       </md-tab>
 
