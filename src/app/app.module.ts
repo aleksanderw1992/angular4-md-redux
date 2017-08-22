@@ -20,6 +20,8 @@ import {AuthenticatedUserService} from "./auth/authenticatedUser.service";
 import {CustomErrorHandler} from "./common/CustomErrorHandler";
 import {CardColorsService} from "./card/card-colors.service";
 import {Observables} from "./common/Observables";
+import {StoreModule} from "@ngrx/store";
+import {reducers} from "./store/app.reducers";
 
 @NgModule({
   declarations: [
@@ -43,6 +45,7 @@ import {Observables} from "./common/Observables";
     MdMenuModule,
     MdInputModule,
     MaterialModule,
+    StoreModule.forRoot(reducers),
 
 
   ],
