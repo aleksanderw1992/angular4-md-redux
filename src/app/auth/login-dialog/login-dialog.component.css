@@ -6,3 +6,6 @@ p, input, .mat-input-infix, .mat-input-container {
   width: 100%;
 }
 
+.hint{
+  font-style: italic;
+}

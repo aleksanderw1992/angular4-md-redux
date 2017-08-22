@@ -8,7 +8,12 @@ import {Md5} from 'ts-md5/dist/md5';
 export class UserService {
 
 
-  private _users: Array<User>=[];
+  private _users: Array<User> = [{
+    username: 'test',
+    hashedPassword: Md5.hashStr('test').toString(),
+    firstname: 'Test',
+    surname: 'User'
+  }];
 
   add(data): ErrorOrResult {
     let usersWithSameUserName = this._users.filter((u) => u.username === data.username).length;
