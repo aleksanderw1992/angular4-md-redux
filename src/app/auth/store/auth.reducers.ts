@@ -1,5 +1,6 @@
 import * as AuthActions from './auth.actions';
 import {User} from "../user";
+
 export interface State{
   authenticatedUser:User
 }
