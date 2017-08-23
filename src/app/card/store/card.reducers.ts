@@ -3,7 +3,8 @@ import {Card} from "../card";
 import {DisplayCard} from "../diaply-card";
 
 export interface State {
-  cards: Card[];
+  //some ts bug that I cannot go for Card[]
+  cards: any;
   initialCard: DisplayCard;
 }
 const initialState: State = {
