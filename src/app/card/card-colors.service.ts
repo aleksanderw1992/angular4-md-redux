@@ -15,9 +15,6 @@ export class CardColorsService {
     })
   }
 
-  /*
-   it should be calculated on login/logout
-   */
   getColorsTranslation() {
     return this._userToColorTranslation;
   }
@@ -26,7 +23,7 @@ export class CardColorsService {
     let username = User.getUsernameOrNull(fromAuthState.authenticatedUser);
     let result = {}
 
-    //currently no nice solution in TS!
+    //currently no nice solution in TS! have to duplicate code from CardColorExcludingInitial
     let cardColorExcludingInitial = ['red', 'yellow', 'green', 'blue', 'orange', 'pink'];
     let usernames = fromAuthState.users.filter(u => u.username != username).map(u => u.username);
     let randomInd = Math.floor(Math.random() * cardColorExcludingInitial.length);
