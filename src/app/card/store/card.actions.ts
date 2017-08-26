@@ -7,7 +7,7 @@ export const ADD_CARD_WITH_CONTENT='ADD_CARD_WITH_CONTENT';
 export class AddCardAction implements Action{
   readonly type = ADD_CARD;
 
-  constructor(public payload: { card: Card }) {
+  constructor(public payload: Card) {
   }
 }
 export class AddCardWithContentAction implements Action{

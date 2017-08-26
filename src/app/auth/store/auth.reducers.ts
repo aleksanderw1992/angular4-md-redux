@@ -19,20 +19,20 @@ const initialState:State={
 export function authReducer(state=initialState, action: AuthActions.AuthActions){
   switch (action.type){
     case AuthActions.LOGIN:
-      console.log('AuthActions.LOGIN' + action.payload.user);
+      // console.log('AuthActions.LOGIN' + JSON.stringify(action.payload.user));
       return {
         ...state,
         authenticatedUser:action.payload.user
       };
     case AuthActions.SIGNUP:
-      console.log('AuthActions.SIGNUP' + action.payload.user);
+      // console.log('AuthActions.SIGNUP' +JSON.stringify( action.payload.user));
       return {
         ...state,
         authenticatedUser:action.payload.user,
         users:[...state.users, action.payload.user]
       };
     case AuthActions.LOGOUT:
-      console.log('AuthActions.LOGOUT');
+      // console.log('AuthActions.LOGOUT');
       return {
         ...state,
         authenticatedUser:null

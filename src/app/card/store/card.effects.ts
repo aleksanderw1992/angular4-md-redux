@@ -23,9 +23,7 @@ export class CardEffects {
     .map(([action, storeState]: [fromCardActions.AddCardWithContentAction, fromApp.AppState]) => {
       return {
         type: fromCardActions.ADD_CARD,
-        payload: {
-          card: new Card(storeState.auth.authenticatedUser, action.payload.content)
-        }
+        payload: new Card(storeState.auth.authenticatedUser, action.payload.content)
       }
 
     });

@@ -17,17 +17,21 @@ export class CardService {
   }
 
   addCard(content) {
-    this.store.dispatch(new AddCardWithContentAction(content))
+    this.store.dispatch(new AddCardWithContentAction({content: content}))
   }
 
   public getCards(fromAuthState, fromCardState): Array<DisplayCard> {
     let initialCard = fromCardState.initialCard;
+    console.log(JSON.stringify(fromCardState.cards));
+
     let otherCards = fromCardState.cards.map(card => this.translateFromCardToDisplayCard(card, fromAuthState));
     otherCards.unshift(initialCard)
     return otherCards
   }
 
   translateFromCardToDisplayCard(card: Card, fromAuthState): DisplayCard {
+    console.log(JSON.stringify(card));
+
     let isCardUsers = fromAuthState.authenticatedUser && fromAuthState.authenticatedUser.username === card.user.username;
     let displayName = User.getDisplayName(card.user)
     let cardColor = this.cardColorsService.getColorsTranslation(fromAuthState)[card.user.username];
