@@ -23,7 +23,7 @@ export function authReducer(state=initialState, action:AuthActions.AuthActions){
         ...state,
         authenticatedUser:action.payload.user
       };
-    case AuthActions.SINGUP:
+    case AuthActions.SIGNUP:
       return {
         ...state,
         authenticatedUser:action.payload.user,

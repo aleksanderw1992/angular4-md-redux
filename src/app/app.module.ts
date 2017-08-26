@@ -22,6 +22,8 @@ import {CardColorsService} from "./card/card-colors.service";
 import {Observables} from "./common/Observables";
 import {StoreModule} from "@ngrx/store";
 import {reducers} from "./store/app.reducers";
+import {AuthEffects} from "./auth/store/auth.effects";
+import {EffectsModule} from "@ngrx/effects";
 
 @NgModule({
   declarations: [
@@ -46,6 +48,8 @@ import {reducers} from "./store/app.reducers";
     MdInputModule,
     MaterialModule,
     StoreModule.forRoot(reducers),
+    EffectsModule.forRoot([AuthEffects])
+
 
 
   ],

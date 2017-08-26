@@ -4,7 +4,7 @@ import {ErrorOrResult} from "../common/ErrorOrResult";
 import {Md5} from 'ts-md5/dist/md5';
 import {Store} from "@ngrx/store";
 import * as fromApp from '../store/app.reducers';
-import {SingupAction} from "./store/auth.actions";
+import {SignupAction} from "./store/auth.actions";
 
 
 @Injectable()
@@ -44,8 +44,4 @@ I think I should redesign the flow. Give two states: IN_ADDING and ADDED. That w
     return ErrorOrResult.createError('no such user')
   }
 
-
-  get users(): Array<User> {
-    return this._users;
-  }
 }
