@@ -2,19 +2,18 @@ import {Injectable} from "@angular/core";
 import {User} from "./user";
 import {ErrorOrResult} from "../common/ErrorOrResult";
 import {Md5} from 'ts-md5/dist/md5';
+import {Store} from "@ngrx/store";
+import * as fromApp from '../store/app.reducers';
+import {SingupAction} from "./store/auth.actions";
 
 
 @Injectable()
 export class UserService {
 
-
-  private _users: Array<User> = [{
-    username: 'test',
-    hashedPassword: Md5.hashStr('test').toString(),
-    firstname: 'Test',
-    surname: 'User'
-  }];
-
+  constructor(private store: Store<fromApp.AppState>) { }
+/*
+I think I should redesign the flow. Give two states: IN_ADDING and ADDED. That way I will skip Observable and subscribing
+ */
   add(data): ErrorOrResult {
     let usersWithSameUserName = this._users.filter((u) => u.username === data.username).length;
     if (usersWithSameUserName>0){

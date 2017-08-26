@@ -1,5 +1,4 @@
 import * as CardActions from './card.actions';
-import {Card} from "../card";
 import {DisplayCard} from "../diaply-card";
 
 export interface State {

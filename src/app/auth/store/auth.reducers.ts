@@ -1,11 +1,19 @@
 import * as AuthActions from './auth.actions';
 import {User} from "../user";
+import {Md5} from "ts-md5/dist/md5";
 
 export interface State{
   authenticatedUser:User
+  users: User[]
 }
 const initialState:State={
-  authenticatedUser:null
+  authenticatedUser:null,
+  users:[{
+    username: 'test',
+    hashedPassword: Md5.hashStr('test').toString(),
+    firstname: 'Test',
+    surname: 'User'
+  }]
 };
 
 export function authReducer(state=initialState, action:AuthActions.AuthActions){
@@ -18,7 +26,8 @@ export function authReducer(state=initialState, action:AuthActions.AuthActions){
     case AuthActions.SINGUP:
       return {
         ...state,
-        authenticatedUser:action.payload.user
+        authenticatedUser:action.payload.user,
+        users:[...state.users, action.payload.user]
       };
     case AuthActions.LOGOUT:
       return {
