@@ -5,13 +5,11 @@ export interface State {
   //some ts bug that I cannot go for Card[]
   cards: any;
   initialCard: DisplayCard;
-  // usernameToColorMap;
 
 }
 const initialState: State = {
   cards: [],
   initialCard: new DisplayCard('right', 'first-card', 'Please login in order to write messages', 'Welcome to Chat Application'),
-  // usernameToColorMap:null
 
 }
 
@@ -23,5 +21,7 @@ export function cardReducer(state = initialState, action: CardActions.CardAction
         ...state,
         cards: [...state.cards, action.payload]
       }
+    default:
+      return state;
   }
 }

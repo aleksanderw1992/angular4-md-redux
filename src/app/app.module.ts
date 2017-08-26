@@ -23,6 +23,7 @@ import {StoreModule} from "@ngrx/store";
 import {reducers} from "./store/app.reducers";
 import {AuthEffects} from "./auth/store/auth.effects";
 import {EffectsModule} from "@ngrx/effects";
+import {CardEffects} from "./card/store/card.effects";
 
 @NgModule({
   declarations: [
@@ -47,7 +48,7 @@ import {EffectsModule} from "@ngrx/effects";
     MdInputModule,
     MaterialModule,
     StoreModule.forRoot(reducers),
-    EffectsModule.forRoot([AuthEffects])
+    EffectsModule.forRoot([AuthEffects, CardEffects])
 
 
 
