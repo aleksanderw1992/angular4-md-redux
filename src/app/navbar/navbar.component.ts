@@ -5,8 +5,6 @@ import {LoginDialogComponent} from "../auth/login-dialog/login-dialog.component"
 import {Store} from "@ngrx/store";
 import * as fromApp from '../store/app.reducers';
 import * as fromAuthActions from "../auth/store/auth.actions";
-import * as fromAuth from "../auth/store/auth.reducers";
-import {Observable} from "rxjs/Observable";
 import {AuthenticatedUserService} from "../auth/authenticatedUser.service";
 
 @Component({

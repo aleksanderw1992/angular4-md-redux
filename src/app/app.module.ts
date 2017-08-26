@@ -19,7 +19,6 @@ import {UserService} from "./auth/user.service";
 import {AuthenticatedUserService} from "./auth/authenticatedUser.service";
 import {CustomErrorHandler} from "./common/CustomErrorHandler";
 import {CardColorsService} from "./card/card-colors.service";
-import {Observables} from "./common/Observables";
 import {StoreModule} from "@ngrx/store";
 import {reducers} from "./store/app.reducers";
 import {AuthEffects} from "./auth/store/auth.effects";
@@ -53,7 +52,7 @@ import {EffectsModule} from "@ngrx/effects";
 
 
   ],
-  providers: [MdIconRegistry, CardService, UserService, AuthenticatedUserService, CustomErrorHandler, CardColorsService, Observables],
+  providers: [MdIconRegistry, CardService, UserService, AuthenticatedUserService, CustomErrorHandler, CardColorsService],
   entryComponents: [LoginDialogComponent],
   bootstrap: [AppComponent]
 })

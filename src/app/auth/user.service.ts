@@ -5,7 +5,6 @@ import {Md5} from 'ts-md5/dist/md5';
 import {FormUserLogin, FormUserSignUp} from "./form-user";
 
 
-@Injectable()
 export class UserService {
 
   trySignUp(formUser: FormUserSignUp, users: User[]): ErrorOrResult {

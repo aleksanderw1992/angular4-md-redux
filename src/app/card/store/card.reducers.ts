@@ -5,15 +5,20 @@ export interface State {
   //some ts bug that I cannot go for Card[]
   cards: any;
   initialCard: DisplayCard;
+  // usernameToColorMap;
+
 }
 const initialState: State = {
   cards: [],
-  initialCard: new DisplayCard('right', 'first-card', 'Please login in order to write messages', 'Welcome to Chat Application',)
+  initialCard: new DisplayCard('right', 'first-card', 'Please login in order to write messages', 'Welcome to Chat Application'),
+  // usernameToColorMap:null
+
 }
 
 export function cardReducer(state = initialState, action: CardActions.CardActions) {
   switch (action.type) {
     case CardActions.ADD_CARD:
+      console.log('CardActions.ADD_CARD :' + JSON.stringify(action.payload));
       return {
         ...state,
         cards: [...state.cards, action.payload]

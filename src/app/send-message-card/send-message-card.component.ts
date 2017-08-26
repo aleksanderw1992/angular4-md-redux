@@ -2,8 +2,9 @@ import {Component, OnInit, ViewChild} from '@angular/core';
 import {AuthenticatedUserService} from "../auth/authenticatedUser.service";
 import {User} from "../auth/user";
 import {CardService} from "../card/card.service";
-import {Observables} from "../common/Observables";
 import {NgForm} from "@angular/forms";
+import {Store} from "@ngrx/store";
+import * as fromApp from '../store/app.reducers';
 
 @Component({
   selector: 'app-send-message-card',
@@ -15,20 +16,21 @@ export class SendMessageCardComponent implements OnInit {
 
   constructor(private authenticatedUserService: AuthenticatedUserService,
   private cardService: CardService,
-              private observables: Observables) {
+              private store: Store<fromApp.AppState>) {
   }
 
 
   ngOnInit() {
-    this.observables.cardAdded.subscribe(()=>{
+    this.store.select('card').subscribe(()=>{
       this.fSendCard.form.reset();
     })
   }
 
   getUserDisplayName() {
-    return this.authenticatedUserService.hasAuthenticatedUser()?
-      User.getDisplayName(this.authenticatedUserService.authenticatedUser):
-      ' ';
+    return this.authenticatedUserService.getAuthenticatedUser().map(user=>{
+      return user?User.getDisplayName(user):
+        ' ';
+    });
   }
 
   send(fSendCard) {
@@ -36,6 +38,8 @@ export class SendMessageCardComponent implements OnInit {
   }
   disableSendBtn(fSendCard){
     let message = fSendCard.value.message;
-    return !this.authenticatedUserService.hasAuthenticatedUser() || !message
+    return this.authenticatedUserService.hasAuthenticatedUser().map(hasAuthenticatedUser=>{
+      return !hasAuthenticatedUser || !message
+    })
   }
 }

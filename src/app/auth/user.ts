@@ -11,4 +11,8 @@ export class User {
      return capitalizeFirstLetter(user.firstname)+' '+ capitalizeFirstLetter(user.surname)
    }
 
+   static getUsernameOrNull(user){
+     return !!user? user.username: null;
+   }
+
 }

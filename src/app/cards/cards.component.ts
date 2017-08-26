@@ -1,7 +1,11 @@
 import {Component, OnInit} from '@angular/core';
 import {CardService} from "../card/card.service";
+import {Store} from "@ngrx/store";
+import * as fromApp from '../store/app.reducers';
+import {Observable} from "rxjs/Observable";
 import {DisplayCard} from "../card/diaply-card";
-import {Observables} from "../common/Observables";
+// import * as fromCard from '../card/store/card.reducers';
+
 
 @Component({
   selector: 'app-cards',
@@ -9,18 +13,17 @@ import {Observables} from "../common/Observables";
   styleUrls: ['./cards.component.css']
 })
 export class CardsComponent implements OnInit {
-  private _cards: Array<DisplayCard>;
 
-
+  _cards;
   constructor(private cardService: CardService,
-              private observables: Observables) {
-    observables.cardAdded.subscribe(() => {
-      this._cards = this.cardService.getCards();
-    })
+              private store: Store<fromApp.AppState>) {
+    this._cards=this.store.map((state: fromApp.AppState)=>{
+      return cardService.getCards(state.auth, state.card);
+    });
   }
 
   ngOnInit() {
-    this._cards = this.cardService.getCards();
+    // this._cards = this.cardService.getCards();
   }
 
 }

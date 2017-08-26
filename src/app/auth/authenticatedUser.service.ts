@@ -25,15 +25,10 @@ export class AuthenticatedUserService {
     )
   }
 
-  getUsernameOrNull() {
+  getAuthenticatedUser() {
     return this.store.select('auth').map((authState: fromAuth.State) => {
-      let user = authState.authenticatedUser;
-      return !!user ? user.username:null;
+        return authState.authenticatedUser;
       }
     )
-  }
-
-  getUsernameOrNullStr() {
-    return 'asdf'
   }
 }
