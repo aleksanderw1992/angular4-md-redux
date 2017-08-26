@@ -22,7 +22,7 @@ export class CardService {
 
   public getCards(fromAuthState, fromCardState): Array<DisplayCard> {
     let initialCard = fromCardState.initialCard;
-    console.log(JSON.stringify(fromCardState.cards));
+    // console.log(JSON.stringify(fromCardState.cards));
 
     let otherCards = fromCardState.cards.map(card => this.translateFromCardToDisplayCard(card, fromAuthState));
     otherCards.unshift(initialCard)
@@ -30,7 +30,7 @@ export class CardService {
   }
 
   translateFromCardToDisplayCard(card: Card, fromAuthState): DisplayCard {
-    console.log(JSON.stringify(card));
+    // console.log(JSON.stringify(card));
 
     let isCardUsers = fromAuthState.authenticatedUser && fromAuthState.authenticatedUser.username === card.user.username;
     let displayName = User.getDisplayName(card.user)

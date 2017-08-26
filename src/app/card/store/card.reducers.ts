@@ -16,7 +16,7 @@ const initialState: State = {
 export function cardReducer(state = initialState, action: CardActions.CardActions) {
   switch (action.type) {
     case CardActions.ADD_CARD:
-      console.log('CardActions.ADD_CARD :' + JSON.stringify(action.payload));
+      // console.log('CardActions.ADD_CARD :' + JSON.stringify(action.payload));
       return {
         ...state,
         cards: [...state.cards, action.payload]

@@ -1,7 +1,7 @@
-export class ErrorOrResult{
+export class ErrorOrResult {
 
-  private _data:any;
-  private _error:string;
+  private _data: any;
+  private _error: string;
 
 
   private constructor(data: any, error: string) {
@@ -9,10 +9,11 @@ export class ErrorOrResult{
     this._error = error;
   }
 
-  static createError(error: string){
+  static createError(error: string) {
     return new ErrorOrResult(null, error)
   }
-  static createResult(data: any){
+
+  static createResult(data: any) {
     return new ErrorOrResult(data, null)
   }
 

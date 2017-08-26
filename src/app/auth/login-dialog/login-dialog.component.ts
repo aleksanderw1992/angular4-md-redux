@@ -18,14 +18,14 @@ export class LoginDialogComponent implements OnInit {
   login(f) {
     this.dialogRef.close({
       loginType: 'login',
-      data:f.value
+      data: f.value
     });
   }
 
   signup(f) {
     this.dialogRef.close({
       loginType: 'signup',
-      data:f.value
+      data: f.value
     });
   }
 
@@ -44,15 +44,15 @@ export class LoginDialogComponent implements OnInit {
   }
 
   errorStatePasswordsMatcher(control: FormControl, form: NgForm): boolean {
-      if (!form.form.controls.password || !form.form.controls.confirmPassword) {
-        return false;
-      }
+    if (!form.form.controls.password || !form.form.controls.confirmPassword) {
+      return false;
+    }
 
-      let areControlsDirty = form.form.controls.password.dirty && form.form.controls.confirmPassword.dirty;
-      if(!areControlsDirty){
-        return false;
-      }
-      let isPasswordsMatch = form.form.controls.password.value === form.form.controls.confirmPassword.value;
-      return !isPasswordsMatch;
+    let areControlsDirty = form.form.controls.password.dirty && form.form.controls.confirmPassword.dirty;
+    if (!areControlsDirty) {
+      return false;
+    }
+    let isPasswordsMatch = form.form.controls.password.value === form.form.controls.confirmPassword.value;
+    return !isPasswordsMatch;
   }
 }

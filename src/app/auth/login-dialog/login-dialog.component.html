@@ -2,9 +2,9 @@
   <!--<h1 md-dialog-title>Login</h1>-->
 
 
-    <md-tab-group dynamicHeight [selectedIndex]="selectedTab">
-      <md-tab>
-        <form #fLogin="ngForm">
+  <md-tab-group dynamicHeight [selectedIndex]="selectedTab">
+    <md-tab>
+      <form #fLogin="ngForm">
         <ng-template md-tab-label>
           Login
         </ng-template>
@@ -29,14 +29,14 @@
           </button>
           <button md-button (click)="cancel(fLogin)">Cancel</button>
         </div>
-          <p class="hint">
-            Hint:<br> "<b>test / test</b>" are credentials to already registered user.
-          </p>
-        </form>
-      </md-tab>
+        <p class="hint">
+          Hint:<br> "<b>test / test</b>" are credentials to already registered user.
+        </p>
+      </form>
+    </md-tab>
 
-      <md-tab>
-        <form #fSignup="ngForm">
+    <md-tab>
+      <form #fSignup="ngForm">
 
         <ng-template md-tab-label>
           Signup
@@ -71,14 +71,15 @@
           </p>
         </div>
         <div md-dialog-actions>
-          <button type="submit" md-button [disabled]="fSignup.form.invalid || !passwordsMatch(fSignup)" (click)="signup(fSignup)">
+          <button type="submit" md-button [disabled]="fSignup.form.invalid || !passwordsMatch(fSignup)"
+                  (click)="signup(fSignup)">
             Signup
           </button>
           <button md-button (click)="cancel(fSignup)">Cancel</button>
         </div>
-        </form>
-      </md-tab>
-    </md-tab-group>
+      </form>
+    </md-tab>
+  </md-tab-group>
 
 
 </div>

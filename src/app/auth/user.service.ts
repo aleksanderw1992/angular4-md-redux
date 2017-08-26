@@ -1,4 +1,3 @@
-import {Injectable} from "@angular/core";
 import {User} from "./user";
 import {ErrorOrResult} from "../common/ErrorOrResult";
 import {Md5} from 'ts-md5/dist/md5';
@@ -9,20 +8,20 @@ export class UserService {
 
   trySignUp(formUser: FormUserSignUp, users: User[]): ErrorOrResult {
     let usersWithSameUserName = users.filter((u) => u.username === formUser.username).length;
-    if (usersWithSameUserName>0){
+    if (usersWithSameUserName > 0) {
       return ErrorOrResult.createError("User already exists")
     }
     let hashedPassword = Md5.hashStr(formUser.password);
     delete formUser.password;//'security'
     let user = new User();
-    user.username=formUser.username
-    user.surname=formUser.surname
-    user.hashedPassword=hashedPassword+''
-    user.firstname=formUser.firstname
+    user.username = formUser.username
+    user.surname = formUser.surname
+    user.hashedPassword = hashedPassword + ''
+    user.firstname = formUser.firstname
     return ErrorOrResult.createResult(user)
   }
 
-  tryLogin(formUser: FormUserLogin, users: User[]) :ErrorOrResult{
+  tryLogin(formUser: FormUserLogin, users: User[]): ErrorOrResult {
     let userFullyMatched = users.filter((u) => u.username === formUser.username && u.hashedPassword === Md5.hashStr(formUser.password));
     let count = userFullyMatched.length
     if (count > 1) {

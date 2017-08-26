@@ -1,32 +1,41 @@
-.message-card-pull-right{
+.message-card-pull-right {
   margin: 5px 5px 5px 45px;
 }
-.message-card-pull-left{
+
+.message-card-pull-left {
   margin: 5px 45px 5px 5px;
 }
-.md-card-title{
+
+.md-card-title {
   font-size: larger;
   font-weight: 400;
 }
-.first-card{
+
+.first-card {
   background-color: darksalmon;
 }
-.red{
+
+.red {
   background-color: tomato;
 }
-.yellow{
+
+.yellow {
   background-color: burlywood;
 }
-.green{
+
+.green {
   background-color: chartreuse;
 }
-.blue{
+
+.blue {
   background-color: lightsteelblue;
 }
-.orange{
+
+.orange {
   background-color: coral;
 }
-.pink{
+
+.pink {
   background-color: hotpink;
 }
 

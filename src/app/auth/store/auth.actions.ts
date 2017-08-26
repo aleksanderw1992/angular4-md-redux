@@ -31,18 +31,18 @@ export class SignupAction implements Action {
 export class TrySignupAction implements Action {
   readonly type = TRY_SIGNUP;
 
-  constructor(public payload: FormUserSignUp ) {
+  constructor(public payload: FormUserSignUp) {
   }
 }
 export class LogoutAction implements Action {
   readonly type = LOGOUT;
 
 }
-export class EmptyAction implements Action{
+export class EmptyAction implements Action {
   readonly type = EMPTY
 }
 export type AuthActions = LoginAction |
   SignupAction |
-  LogoutAction|
-  TryLoginAction|
+  LogoutAction |
+  TryLoginAction |
   TrySignupAction;

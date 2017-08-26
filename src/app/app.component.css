@@ -1,13 +1,15 @@
-.height-navbar{
+.height-navbar {
   height: 30px;
 }
-.height-app-cards{
+
+.height-app-cards {
   /*fallback*/
   height: 600px;
   width: 100%;
   /*height: calc(100% - 350px);*/
   overflow: auto;
 }
-.height-app-send-message-card{
+
+.height-app-send-message-card {
   height: 260px;
 }

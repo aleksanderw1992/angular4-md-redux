@@ -15,20 +15,20 @@ export class SendMessageCardComponent implements OnInit {
   @ViewChild('fSendCard') public fSendCard: NgForm;
 
   constructor(private authenticatedUserService: AuthenticatedUserService,
-  private cardService: CardService,
+              private cardService: CardService,
               private store: Store<fromApp.AppState>) {
   }
 
 
   ngOnInit() {
-    this.store.select('card').subscribe(()=>{
+    this.store.select('card').subscribe(() => {
       this.fSendCard.form.reset();
     })
   }
 
   getUserDisplayName() {
-    return this.authenticatedUserService.getAuthenticatedUser().map(user=>{
-      return user?User.getDisplayName(user):
+    return this.authenticatedUserService.getAuthenticatedUser().map(user => {
+      return user ? User.getDisplayName(user) :
         ' ';
     });
   }
@@ -36,9 +36,10 @@ export class SendMessageCardComponent implements OnInit {
   send(fSendCard) {
     this.cardService.addCard(fSendCard.value.message)
   }
-  disableSendBtn(fSendCard){
+
+  disableSendBtn(fSendCard) {
     let message = fSendCard.value.message;
-    return this.authenticatedUserService.hasAuthenticatedUser().map(hasAuthenticatedUser=>{
+    return this.authenticatedUserService.hasAuthenticatedUser().map(hasAuthenticatedUser => {
       return !hasAuthenticatedUser || !message
     })
   }

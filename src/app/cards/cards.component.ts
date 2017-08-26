@@ -15,9 +15,10 @@ import {DisplayCard} from "../card/diaply-card";
 export class CardsComponent implements OnInit {
 
   _cards;
+
   constructor(private cardService: CardService,
               private store: Store<fromApp.AppState>) {
-    this._cards=this.store.map((state: fromApp.AppState)=>{
+    this._cards = this.store.map((state: fromApp.AppState) => {
       return cardService.getCards(state.auth, state.card);
     });
   }

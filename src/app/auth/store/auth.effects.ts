@@ -17,20 +17,21 @@ import "rxjs/add/observable/empty";
 export class AuthEffects {
   constructor(private actions$: Actions,
               private store: Store<fromApp.AppState>,
-  private userService: UserService) {
+              private userService: UserService) {
   }
+
   @Effect()
   authSignup$ = this.actions$
     .ofType(fromAuthActions.TRY_SIGNUP)
     .withLatestFrom(this.store)
-    .map(([action, storeState]: [TrySignupAction, fromApp.AppState] ) => {
+    .map(([action, storeState]: [TrySignupAction, fromApp.AppState]) => {
       let errorOrResultSignUp = this.userService.trySignUp(action.payload, storeState.auth.users)
-      if(errorOrResultSignUp.data){
+      if (errorOrResultSignUp.data) {
         return {
           type: fromAuthActions.SIGNUP,
           payload: {user: errorOrResultSignUp.data}
         }
-      }else{
+      } else {
         CustomErrorHandler.handleError(errorOrResultSignUp.error)
         return {
           type: fromAuthActions.EMPTY
@@ -42,14 +43,14 @@ export class AuthEffects {
   authLogin$ = this.actions$
     .ofType(fromAuthActions.TRY_LOGIN)
     .withLatestFrom(this.store)
-    .map(([action, storeState]: [TryLoginAction, fromApp.AppState] ) => {
-      let errorOrResultLogin = this.userService.tryLogin(action.payload, storeState.auth.users );
-      if(errorOrResultLogin.data){
+    .map(([action, storeState]: [TryLoginAction, fromApp.AppState]) => {
+      let errorOrResultLogin = this.userService.tryLogin(action.payload, storeState.auth.users);
+      if (errorOrResultLogin.data) {
         return {
           type: fromAuthActions.LOGIN,
           payload: {user: errorOrResultLogin.data}
         }
-      }else{
+      } else {
         CustomErrorHandler.handleError(errorOrResultLogin.error)
         return {
           type: fromAuthActions.EMPTY

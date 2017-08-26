@@ -11,7 +11,8 @@ export class CardComponent implements OnInit {
   @Input()
   private displayCard: DisplayCard;
 
-  constructor() { }
+  constructor() {
+  }
 
   ngOnInit() {
   }
