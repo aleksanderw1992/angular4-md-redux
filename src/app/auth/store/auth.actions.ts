@@ -7,6 +7,7 @@ export const LOGIN = 'LOGIN';
 export const SIGNUP = 'SIGNUP';
 export const TRY_SIGNUP = 'TRY_SIGNUP';
 export const LOGOUT = 'LOGOUT';
+export const EMPTY = 'EMPTY';
 
 export class LoginAction implements Action {
   readonly type = LOGIN;
@@ -36,6 +37,9 @@ export class TrySignupAction implements Action {
 export class LogoutAction implements Action {
   readonly type = LOGOUT;
 
+}
+export class EmptyAction implements Action{
+  readonly type = EMPTY
 }
 export type AuthActions = LoginAction |
   SignupAction |
