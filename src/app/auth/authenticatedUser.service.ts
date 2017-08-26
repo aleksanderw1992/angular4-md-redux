@@ -2,7 +2,7 @@ import {User} from "./user";
 import {Injectable} from "@angular/core";
 import {Store} from "@ngrx/store";
 import * as fromAuth from "../auth/store/auth.reducers";
-import * as fromApp from '../store/app.reducers';
+import * as fromApp from "../store/app.reducers";
 
 
 @Injectable()

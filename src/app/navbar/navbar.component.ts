@@ -1,9 +1,9 @@
-import {Component, OnInit} from '@angular/core';
-import {MdDialog, MdIconRegistry} from '@angular/material';
+import {Component, OnInit} from "@angular/core";
+import {MdDialog, MdIconRegistry} from "@angular/material";
 import {DomSanitizer} from "@angular/platform-browser";
 import {LoginDialogComponent} from "../auth/login-dialog/login-dialog.component";
 import {Store} from "@ngrx/store";
-import * as fromApp from '../store/app.reducers';
+import * as fromApp from "../store/app.reducers";
 import * as fromAuthActions from "../auth/store/auth.actions";
 import {AuthenticatedUserService} from "../auth/authenticatedUser.service";
 

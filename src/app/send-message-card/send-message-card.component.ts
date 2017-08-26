@@ -1,10 +1,10 @@
-import {Component, OnInit, ViewChild} from '@angular/core';
+import {Component, OnInit, ViewChild} from "@angular/core";
 import {AuthenticatedUserService} from "../auth/authenticatedUser.service";
 import {User} from "../auth/user";
 import {CardService} from "../card/card.service";
 import {NgForm} from "@angular/forms";
 import {Store} from "@ngrx/store";
-import * as fromApp from '../store/app.reducers';
+import * as fromApp from "../store/app.reducers";
 
 @Component({
   selector: 'app-send-message-card',

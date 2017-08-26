@@ -1,4 +1,4 @@
-import * as AuthActions from './auth.actions';
+import * as AuthActions from "./auth.actions";
 import {User} from "../user";
 import {Md5} from "ts-md5/dist/md5";
 

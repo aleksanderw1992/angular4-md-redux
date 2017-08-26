@@ -1,9 +1,7 @@
-import {Component, OnInit} from '@angular/core';
+import {Component, OnInit} from "@angular/core";
 import {CardService} from "../card/card.service";
 import {Store} from "@ngrx/store";
-import * as fromApp from '../store/app.reducers';
-import {Observable} from "rxjs/Observable";
-import {DisplayCard} from "../card/diaply-card";
+import * as fromApp from "../store/app.reducers";
 // import * as fromCard from '../card/store/card.reducers';
 
 

@@ -1,20 +1,26 @@
-import {BrowserModule} from '@angular/platform-browser';
-import {NgModule} from '@angular/core';
-import {FormsModule} from '@angular/forms';
-import {HttpModule} from '@angular/http';
+import {BrowserModule} from "@angular/platform-browser";
+import {NgModule} from "@angular/core";
+import {FormsModule} from "@angular/forms";
+import {HttpModule} from "@angular/http";
 
-import {AppComponent} from './app.component';
-import {NavbarComponent} from './navbar/navbar.component';
+import {AppComponent} from "./app.component";
+import {NavbarComponent} from "./navbar/navbar.component";
 import {
   MaterialModule,
-  MdButtonModule, MdCardModule, MdIconModule, MdIconRegistry, MdInputModule, MdMenuModule, MdToolbarModule
-} from '@angular/material';
-import {BrowserAnimationsModule} from '@angular/platform-browser/animations';
-import {CardsComponent} from './cards/cards.component';
-import {CardComponent} from './card/card.component';
+  MdButtonModule,
+  MdCardModule,
+  MdIconModule,
+  MdIconRegistry,
+  MdInputModule,
+  MdMenuModule,
+  MdToolbarModule
+} from "@angular/material";
+import {BrowserAnimationsModule} from "@angular/platform-browser/animations";
+import {CardsComponent} from "./cards/cards.component";
+import {CardComponent} from "./card/card.component";
 import {CardService} from "./card/card.service";
-import {SendMessageCardComponent} from './send-message-card/send-message-card.component';
-import {LoginDialogComponent} from './auth/login-dialog/login-dialog.component';
+import {SendMessageCardComponent} from "./send-message-card/send-message-card.component";
+import {LoginDialogComponent} from "./auth/login-dialog/login-dialog.component";
 import {UserService} from "./auth/user.service";
 import {AuthenticatedUserService} from "./auth/authenticatedUser.service";
 import {CustomErrorHandler} from "./common/CustomErrorHandler";

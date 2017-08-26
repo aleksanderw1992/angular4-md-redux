@@ -1,15 +1,28 @@
 import {Injectable} from "@angular/core";
-import {UserService} from "../auth/user.service";
-import {AuthenticatedUserService} from "../auth/authenticatedUser.service";
 import {User} from "../auth/user";
+import {Store} from "@ngrx/store";
+import * as fromApp from "../store/app.reducers";
+
 
 @Injectable()
 export class CardColorsService {
+  _userToColorTranslation;
+
+  constructor(private store: Store<fromApp.AppState>) {
+
+    this.store.select('auth').subscribe(state => {
+      this._userToColorTranslation = this.calculateUserToColorTranslation(state)
+    })
+  }
 
   /*
    it should be calculated on login/logout
    */
-  getColorsTranslation(fromAuthState) {
+  getColorsTranslation() {
+    return this._userToColorTranslation;
+  }
+
+  calculateUserToColorTranslation(fromAuthState) {
     let username = User.getUsernameOrNull(fromAuthState.authenticatedUser);
     let result = {}
 

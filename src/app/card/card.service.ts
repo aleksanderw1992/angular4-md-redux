@@ -4,7 +4,7 @@ import {Injectable} from "@angular/core";
 import {User} from "../auth/user";
 import {CardColorsService} from "./card-colors.service";
 import {AddCardWithContentAction} from "./store/card.actions";
-import * as fromApp from '../store/app.reducers';
+import * as fromApp from "../store/app.reducers";
 import {Store} from "@ngrx/store";
 
 
@@ -34,7 +34,7 @@ export class CardService {
 
     let isCardUsers = fromAuthState.authenticatedUser && fromAuthState.authenticatedUser.username === card.user.username;
     let displayName = User.getDisplayName(card.user)
-    let cardColor = this.cardColorsService.getColorsTranslation(fromAuthState)[card.user.username];
+    let cardColor = this.cardColorsService.getColorsTranslation()[card.user.username];
     return new DisplayCard(isCardUsers ? 'left' : 'right', cardColor, card.content, displayName)
   }
 }

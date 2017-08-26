@@ -1,5 +1,5 @@
-import * as fromAuth from '../auth/store/auth.reducers';
-import * as fromCard from '../card/store/card.reducers';
+import * as fromAuth from "../auth/store/auth.reducers";
+import * as fromCard from "../card/store/card.reducers";
 import {ActionReducerMap} from "@ngrx/store";
 
 export interface AppState {

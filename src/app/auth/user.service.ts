@@ -1,6 +1,6 @@
 import {User} from "./user";
 import {ErrorOrResult} from "../common/ErrorOrResult";
-import {Md5} from 'ts-md5/dist/md5';
+import {Md5} from "ts-md5/dist/md5";
 import {FormUserLogin, FormUserSignUp} from "./form-user";
 
 
