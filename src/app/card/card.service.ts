@@ -32,7 +32,7 @@ export class CardService {
   translateFromCardToDisplayCard(card: Card): DisplayCard {
     let isCardUsers = this.authenticatedUserService.hasAuthenticatedUser() && this.authenticatedUserService.authenticatedUser.username === card.user.username;
     let displayName = User.getDisplayName(card.user)
-    let cardColor = this.cardColorsService.getColorsTranslation(this.authenticatedUserService.getUsernameOrNull())[card.user.username];
+    let cardColor = this.cardColorsService.getColorsTranslation(this.authenticatedUserService.getUsernameOrNullStr())[card.user.username];
     return new DisplayCard(isCardUsers ? 'left' : 'right', cardColor, card.content, displayName)
     // return null;
   }

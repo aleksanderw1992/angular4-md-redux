@@ -29,7 +29,7 @@ export class AuthEffects {
       if(errorOrResultSignUp.data){
         return {
           type: fromAuthActions.SIGNUP,
-          payload: errorOrResultSignUp.data
+          payload: {user: errorOrResultSignUp.data}
         }
       }else{
         CustomErrorHandler.handleError(errorOrResultSignUp.error)
@@ -46,7 +46,7 @@ export class AuthEffects {
       if(errorOrResultLogin.data){
         return {
           type: fromAuthActions.LOGIN,
-          payload: errorOrResultLogin.data
+          payload: {user: errorOrResultLogin.data}
         }
       }else{
         CustomErrorHandler.handleError(errorOrResultLogin.error)

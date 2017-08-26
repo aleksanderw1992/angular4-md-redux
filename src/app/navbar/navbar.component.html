@@ -2,12 +2,12 @@
   <md-icon>more_vert</md-icon>
 </button>
 <md-menu #menu="mdMenu">
-  <button md-menu-item (click)="login()" [disabled]="authenticatedUserService.hasAuthenticatedUser()">
+  <button md-menu-item (click)="login()" [disabled]="authenticatedUserService.hasAuthenticatedUser() | async">
     <!--<md-icon>input</md-icon>-->
     <md-icon svgIcon="custom-login"></md-icon>
     <span>Login</span>
   </button>
-  <button md-menu-item (click)="logout()" [disabled]="!authenticatedUserService.hasAuthenticatedUser()">
+  <button md-menu-item (click)="logout()" [disabled]="!(authenticatedUserService.hasAuthenticatedUser() | async)">
     <!--https://github.com/klarsys/angular-material-icons/issues/53-->
     <md-icon svgIcon="custom-logout"></md-icon>
     <!--<img class="icon" src="my_icon.png" alt="my icon"/>-->

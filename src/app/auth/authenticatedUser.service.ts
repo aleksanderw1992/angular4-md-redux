@@ -1,32 +1,39 @@
 import {User} from "./user";
 import {Injectable} from "@angular/core";
-import {Observables} from "../common/Observables";
+import {Store} from "@ngrx/store";
+import * as fromAuth from "../auth/store/auth.reducers";
+import * as fromApp from '../store/app.reducers';
+
 
 @Injectable()
-export class AuthenticatedUserService{
+export class AuthenticatedUserService {
   private _authenticatedUser: User;
 
 
-  constructor(  private observables: Observables) {
+  constructor(private store: Store<fromApp.AppState>) {
   }
 
-  login(user: User) {
-    this._authenticatedUser = user
-    this.observables.notifyCardsChanged()
-  }
-
-  logout() {
-    this._authenticatedUser = undefined
-    this.observables.notifyCardsChanged()
-  }
 
   get authenticatedUser(): User {
     return this._authenticatedUser;
   }
-  hasAuthenticatedUser(){
-    return !!this._authenticatedUser;
+
+  hasAuthenticatedUser() {
+    return this.store.select('auth').map((authState: fromAuth.State) => {
+        return !!authState.authenticatedUser;
+      }
+    )
   }
-  getUsernameOrNull(){
-    return this.hasAuthenticatedUser()? this.authenticatedUser.username:null
+
+  getUsernameOrNull() {
+    return this.store.select('auth').map((authState: fromAuth.State) => {
+      let user = authState.authenticatedUser;
+      return !!user ? user.username:null;
+      }
+    )
+  }
+
+  getUsernameOrNullStr() {
+    return 'asdf'
   }
 }
