@@ -2,32 +2,29 @@ import {Injectable} from "@angular/core";
 import {User} from "./user";
 import {ErrorOrResult} from "../common/ErrorOrResult";
 import {Md5} from 'ts-md5/dist/md5';
-import {Store} from "@ngrx/store";
-import * as fromApp from '../store/app.reducers';
-import {SignupAction} from "./store/auth.actions";
+import {FormUserLogin, FormUserSignUp} from "./form-user";
 
 
 @Injectable()
 export class UserService {
 
-  constructor(private store: Store<fromApp.AppState>) { }
-/*
-I think I should redesign the flow. Give two states: IN_ADDING and ADDED. That way I will skip Observable and subscribing
- */
-  add(data): ErrorOrResult {
-    let usersWithSameUserName = this._users.filter((u) => u.username === data.username).length;
+  trySignUp(formUser: FormUserSignUp, users: User[]): ErrorOrResult {
+    let usersWithSameUserName = users.filter((u) => u.username === formUser.username).length;
     if (usersWithSameUserName>0){
       return ErrorOrResult.createError("User already exists")
     }
-    let hashedPassword = Md5.hashStr(data.password);
-    delete data.password;
-    data.hashedPassword=hashedPassword;
-    this._users.push(data)
-    return ErrorOrResult.createResult(data)
+    let hashedPassword = Md5.hashStr(formUser.password);
+    delete formUser.password;//'security'
+    let user = new User();
+    user.username=formUser.username
+    user.surname=formUser.surname
+    user.hashedPassword=hashedPassword+''
+    user.firstname=formUser.firstname
+    return ErrorOrResult.createResult(user)
   }
 
-  findUser(username, password) :ErrorOrResult{
-    let userFullyMatched = this._users.filter((u) => u.username === username && u.hashedPassword === Md5.hashStr(password));
+  tryLogin(formUser: FormUserLogin, users: User[]) :ErrorOrResult{
+    let userFullyMatched = users.filter((u) => u.username === formUser.username && u.hashedPassword === Md5.hashStr(formUser.password));
     let count = userFullyMatched.length
     if (count > 1) {
       return ErrorOrResult.createError('more than one user found')
@@ -36,7 +33,7 @@ I think I should redesign the flow. Give two states: IN_ADDING and ADDED. That w
       return ErrorOrResult.createResult(userFullyMatched[0])
     }
     //count ===0
-    let userMatchedByUsername = this._users.filter((u) => u.username === username)
+    let userMatchedByUsername = users.filter((u) => u.username === formUser.username)
     let countByUsername = userMatchedByUsername.length
     if (countByUsername === 1) {
       return ErrorOrResult.createError('wrong password')

@@ -23,7 +23,8 @@ export class CardColorsService {
 
     //currently no nice solution in TS!
     let cardColorExcludingInitial = ['red', 'yellow', 'green', 'blue', 'orange', 'pink'];
-    let usernames = this.userService.users.filter(u=>u.username!=username).map(u=>u.username);
+    // let usernames = this.userService.users.filter(u=>u.username!=username).map(u=>u.username);
+    let usernames = 'this.userService.users.filter(u=>u.username!=username).map(u=>u.username)';
     let randomInd = Math.floor(Math.random() * cardColorExcludingInitial.length);
     let randomColor = cardColorExcludingInitial.splice(randomInd,1);
 

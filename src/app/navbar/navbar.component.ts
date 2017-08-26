@@ -5,7 +5,7 @@ import {LoginDialogComponent} from "../auth/login-dialog/login-dialog.component"
 import {CustomErrorHandler} from "../common/CustomErrorHandler";
 import {Store} from "@ngrx/store";
 import * as fromApp from '../store/app.reducers';
-import * as AuthActions from "../auth/store/auth.actions";
+import * as fromAuthActions from "../auth/store/auth.actions";
 
 @Component({
   selector: 'app-navbar',
@@ -33,7 +33,7 @@ export class NavbarComponent implements OnInit {
         //I know it is now duplication, but keeping for the time being
         case 'login':
           //dispatch
-          this.store.dispatch(new AuthActions.TryLoginAction(result.data));
+          this.store.dispatch(new fromAuthActions.TryLoginAction(result.data));
 /*
           let errorOrResultLogin = this.userService.findUser(user.username, user.password);
           if(errorOrResultLogin.data){
@@ -44,7 +44,7 @@ export class NavbarComponent implements OnInit {
           */
           break
         case 'signup':
-          this.store.dispatch(new AuthActions.TrySignupAction(result.data));
+          this.store.dispatch(new fromAuthActions.TrySignupAction(result.data));
 /*
           let errorOrResultSignUp = this.userService.add(user);
           if(errorOrResultSignUp.data){
@@ -57,8 +57,7 @@ export class NavbarComponent implements OnInit {
     });
   }
   logout(){
-    this.store.dispatch(new AuthActions.LogoutAction());
-
+    this.store.dispatch(new fromAuthActions.LogoutAction());
   }
 
 }
