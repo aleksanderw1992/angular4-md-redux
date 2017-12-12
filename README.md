@@ -1,4 +1,6 @@
 # ChatApp
+See app running:  
+https://chat-app-aleksanderw1992.herokuapp.com/
 
 This is a pet project showing skills in Angular4, Material Design, Redux and other small libraries. It has simple SignUp/SignIn form and emulates chat application - enables to write messages from different accounts. When changing users, the position and colors of text messages change.
 
